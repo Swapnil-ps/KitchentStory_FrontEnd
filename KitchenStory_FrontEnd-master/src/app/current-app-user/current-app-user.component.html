@@ -1,0 +1,12 @@
+<ng-container *ngIf = "isAdmin; then AdminNavbar else UserNavbar"></ng-container>
+
+  <ng-template #AdminNavbar>
+
+    <app-admin-navbar></app-admin-navbar>
+
+  </ng-template>
+
+  <ng-template #UserNavbar>
+    <app-user-navbar></app-user-navbar>
+
+  </ng-template>

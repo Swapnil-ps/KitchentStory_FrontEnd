@@ -1,0 +1,15 @@
+<div class="d-flex mt-3">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchInput" >
+    <button class="btn btn-success text-white" type="submit">Search</button>
+</div>
+<div class="container mt-3">
+  <h3>Food Items</h3>
+  <ng-container *ngFor="let foodItem of foodItems | filter: searchInput">
+      <img [src]="foodItem.imgSource" width="100" alt="{{foodItem.foodName}}" class="m-auto rounded-sm" />
+      <h5>{{foodItem.foodName }}</h5>
+      <p>Price: {{foodItem.price | currency: 'INR'}}</p>
+      <button class="btn btn-warning btn-sm" *ngIf="isUser" type="button" (click)="addToCart(foodItem)">Add to Cart</button>
+      <button class="btn btn-warning btn-sm" *ngIf="isAdmin" type="button" (click)="removeProduct(foodItem.id)">Remove Product</button>
+  </ng-container>
+</div>
+
